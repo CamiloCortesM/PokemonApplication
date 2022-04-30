@@ -1,34 +1,20 @@
-import React, { useEffect, useState } from 'react'
-import Card from './Card';
+import React, { useEffect, useState } from "react";
+import { pokefunc } from "../helpers/Pokefunc";
+import Card from "./Card";
 
-const CardPoket = () => {
-    const [pokemon, setPokemon] = useState({})
+const CardPoket = ({CrPoket}) => {
+  const [pokemon, setPokemon] = useState({});
+  useEffect(() => {
+    pokefunc(CrPoket).then((img) => {
+      setPokemon(img);
+    });
+  }, [CrPoket]);
 
-    const pokefunc = async()=>{
-        const resp = await fetch('https://pokeapi.co/api/v2/pokemon/13');
-        const {id,name,sprites} = await resp.json(); 
-        setPokemon({
-            id: id,
-            name: name,
-            url: sprites.other.dream_world.front_default
-        }) 
-    
-    }
-
-
-    useEffect(() => {
-        pokefunc();
-    }, [])
-    
-
-  
   return (
-    <div>
-        <div>
-            <Card pokemon={pokemon}/>
-        </div>
-    </div>
-  )
-}
+    <>
+    <Card pokemon={pokemon} />
+    </>  
+  );
+};
 
-export default CardPoket
+export default CardPoket;
