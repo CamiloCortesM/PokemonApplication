@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { pokefunc } from "../helpers/Pokefunc";
+import React from "react";
+import usePokemon from "../hooks/usePokemon";
 import Card from "./Card";
 
-const CardPoket = ({CrPoket}) => {
-  const [pokemon, setPokemon] = useState({});
-  useEffect(() => {
-    pokefunc(CrPoket).then((img) => {
-      setPokemon(img);
-    });
-  }, [CrPoket]);
+const CardPoket = ({ CrPoket }) => {
+   const {data,loading} = usePokemon(CrPoket);
+    console.log(data);
 
   return (
     <>
-    <Card pokemon={pokemon} />
-    </>  
+      {
+        loading && <p>Cargando...</p>
+      }
+      <Card pokemon={data} />
+    </>
   );
 };
 
