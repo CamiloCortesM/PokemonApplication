@@ -25,7 +25,7 @@ h1{
     align-content: center;
     border: 2px solid grey;
     border-radius: 40px;
-    width:23%;
+    width:22%;
     height: 350px;
     overflow: hidden;
     margin-bottom: 20px;
@@ -75,4 +75,28 @@ h1{
     width: 33%;
     
 
+}
+
+@media (max-width:1044px) {
+    .Card-Pokemon{
+        width: 25%;
+    }
+}
+
+@media (max-width:950px) {
+    .Card-Pokemon{
+        width: 40%;
+    }
+}
+
+@media (max-width:725px) {
+    .Card-Pokemon{
+        width: 75%;
+    }
+}
+
+@media (max-width:450px) {
+    .Card-Pokemon{
+        width: 86%;
+    }
 }

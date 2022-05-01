@@ -3,7 +3,7 @@ import CardPoket from "./components/CardPoket";
 
 const PokemonCards = () => {
   const Pokemon = [];
-  for (let index = 1; index <= 500; index++) {
+  for (let index = 1; index <= 50; index++) {
     Pokemon.push(index);
   }
   return (
